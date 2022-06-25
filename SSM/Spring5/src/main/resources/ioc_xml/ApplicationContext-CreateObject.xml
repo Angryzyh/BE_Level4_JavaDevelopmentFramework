@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--scope:singleton为单例,在加载xml配置文件时就创建容器对象-->
+    <!--scope:prototype为多例,在使用时才创建容器对象-->
+    <bean id="user1" class="com.angryzyh.ioc_xml.bean.User"/>
+    <bean id="user2" class="com.angryzyh.ioc_xml.bean.User" scope="prototype"/>
+
+
+</beans>
