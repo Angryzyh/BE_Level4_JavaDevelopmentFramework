@@ -19,7 +19,7 @@ public class AutoWire {
      */
     @Test
     public void testDemo() {
-        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("ioc_xml/ApplicationContext-autowrie.xml");
+        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("ioc_xml/ApplicationContext-Autowrie.xml");
         Employees emp1 = app.getBean("emp1", Employees.class);
         System.out.println("emp1 = " + emp1);
     }
