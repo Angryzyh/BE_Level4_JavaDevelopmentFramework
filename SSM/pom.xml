@@ -56,6 +56,7 @@
     <!--下载引入的jar包-->
     <dependencies>
     </dependencies>
+
     <!--依赖管理-->
     <dependencyManagement>
         <dependencies>
@@ -65,19 +66,13 @@
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
-            <!--德鲁伊连接池-->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>druid</artifactId>
-                <version>${druid.version}</version>
-            </dependency>
-            <!--mysql数据库驱动-->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
 
+            <!--spring 4个核心容器jar包
+            | spring-core IOC控制反转，DI依赖注入
+            | spring-beans BeanFactory工厂模式
+            | spring-context ApplicationContext接口是Context模块的焦点
+            | spring-expression 运行时查询和操作对象图的表达式语言
+            -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
@@ -89,21 +84,77 @@
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
-                <!--导入外部资源-->
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--面向切面编程-->
+            <dependency>
+                <groupId>org.springframework</groupId>
                 <artifactId>spring-aop</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <!--与AspectJ的集成功能-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+
+            <!--dao层jar包
+            | mysql驱动
+            | 连接池
+            | spring-jdbc模板
+            | spring-tx事务
+            | spring-orm持久层框架
+            -->
+            <!--mysql数据库驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--druid德鲁伊连接池-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--jdbc-template spring封装JDBC模板-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--spring-tx事务-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--spring-orm持久层框架-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <!--service层jar包
+            |
+            |
+            -->
+
+
+            <!--controller层jar包
+            |
+            |
+            |-->
+
         </dependencies>
     </dependencyManagement>
 

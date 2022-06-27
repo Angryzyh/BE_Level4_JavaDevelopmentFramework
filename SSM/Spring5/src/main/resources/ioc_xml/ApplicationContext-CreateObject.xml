@@ -7,6 +7,4 @@
     <!--scope:prototype为多例,在使用时才创建容器对象-->
     <bean id="user1" class="com.angryzyh.ioc_xml.bean.User"/>
     <bean id="user2" class="com.angryzyh.ioc_xml.bean.User" scope="prototype"/>
-
-
 </beans>
