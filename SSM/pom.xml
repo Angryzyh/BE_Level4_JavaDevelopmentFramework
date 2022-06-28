@@ -13,7 +13,7 @@
 
     <!--子模块-->
     <modules>
-        <module>Spring5</module>
+        <module>Spring</module>
     </modules>
 
     <!--模式管理-->
@@ -47,7 +47,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <junit.version>4.13.2</junit.version>
+        <junit4.version>4.13.2</junit4.version>
+        <junit5.version>5.8.2</junit5.version>
+        <log4j.version>2.17.2</log4j.version>
+        <slf4.version>1.7.36</slf4.version>
         <spring.version>5.3.21</spring.version>
         <druid.version>1.2.11</druid.version>
         <mysql.version>8.0.29</mysql.version>
@@ -55,6 +58,7 @@
 
     <!--下载引入的jar包-->
     <dependencies>
+
     </dependencies>
 
     <!--依赖管理-->
@@ -64,7 +68,38 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+                <version>${junit4.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!--log4j日志组件jar包-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-slf4j-impl</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4.version}</version>
             </dependency>
 
             <!--spring 4个核心容器jar包

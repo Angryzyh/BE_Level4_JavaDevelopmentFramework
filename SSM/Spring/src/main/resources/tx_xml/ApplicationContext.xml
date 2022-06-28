@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--开启组件扫描-->
+    <context:component-scan base-package="com.angryzyh.tx_xml"/>
+    <!--导入外部属性文件-->
+    <context:property-placeholder location="classpath:durid/jdbc.properties"/>
+    <bean id="dataSource_tx_xml" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--创建jdbcTemplate模板对象，配置数据源属性-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource_tx_xml"/>
+    </bean>
+
+    <!--1. 创建事务管理器，配置数据源属性-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource_tx_xml"/>
+    </bean>
+    <!--2. 配置事务通知-->
+    <tx:advice id="txAdvice">
+        <!--配置事务参数-->
+        <tx:attributes>
+            <!--指定哪种规则的方法上添加事务-->
+            <tx:method name="transferMoney" propagation="REQUIRED"/>
+            <!--可以使用 通配符-->
+            <!--<tx:method name="transferM*" propagation="REQUIRED"/>-->
+        </tx:attributes>
+    </tx:advice>
+    <!--设置代理为cglib代理 默认为false jdk代理-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <!--3. 配置切入点和切面-->
+    <aop:config>
+        <!--配置切入点-->
+        <aop:pointcut id="p" expression="execution(* com.angryzyh.tx_xml.service.impl.CustomServiceImpl.*(..))"/>
+        <!--配置切面-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="p" />
+    </aop:config>
+</beans>
