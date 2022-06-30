@@ -6,5 +6,11 @@
 </head>
 <body>
     <h1>成功访问页面！！！</h1>
+    <ul>
+        <li th:text="${testRequestScope}"></li>
+        <li th:text="${session.testSessionScope}"></li>
+        <li th:text="${application.testApplicationScopeByRequest}"></li>
+        <li th:text="${application.testApplicationScopeByRequest}"></li>
+    </ul>
 </body>
 </html>

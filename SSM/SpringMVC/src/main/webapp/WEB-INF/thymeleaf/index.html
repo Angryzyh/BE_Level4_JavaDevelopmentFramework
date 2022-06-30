@@ -94,5 +94,18 @@
         <li><a th:href="@{/testCookieValue.do}">测试@CookieValue注解,获取第一次会话创建的cookie</a></li>
         <li><a th:href="@{/testPOJO.do(userId=1,userName='张三',userPassword='123456',userSex='男',userAge=18,userEmail='1111@qq.com')}">测试POJO,控制器形参为Bean对象,获取前端name属性名的value值</a></li>
     </ul>
+    <hr>
+
+    <h1>TestScopeObject.java</h1>
+    <ul>
+        <li><a th:href="@{/testRequestByServletAPI.do}">通过servletAPI向request域对象共享数据</a></li>
+        <li><a th:href="@{/testModelAndView.do}">通过ModelAndView向request域对象共享数据</a></li>
+        <li><a th:href="@{/testModel.do}">通过Model向request域对象共享数据</a></li>
+        <li><a th:href="@{/testMap.do}">通过map向request域对象共享数据</a></li>
+        <li><a th:href="@{/testModelMap.do}">通过ModelMap向request域对象共享数据</a></li>
+        <li><a th:href="@{/testSession.do}">通过servletAPI向session域对象共享数据</a></li>
+        <li><a th:href="@{/testApplication.do}">通过servletAPI向application域对象共享数据</a></li>
+    </ul>
+
 </body>
 </html>
