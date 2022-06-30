@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index.html</title>
+</head>
+<body>
+    <h1>TestController.java</h1>
+    <ul>
+        <li><a th:href="@{/}">服务器启动默认跳转该页面</a></li>
+    </ul>
+
+    <hr>
+
+    <h1>TestRequestMapping.java</h1>
+    <ul>
+        <li><a th:href="@{/test/TestClassRequestPath.do}">测试@RequestMapping解注在类上</a></li>
+        <li><a th:href="@{/test/TestPropertyValue.do}">测试@RequestMapping注解的value属性</a>&nbsp;&nbsp;&nbsp;<a th:href="@{/test/TestPropertyValue2.do}">这也是</a></li>
+        <li><a th:href="@{/test/TestPropertyMethod.do}">测试@RequestMapping注解的method属性a标签默认get提交</a><form method="post" th:action="@{/test/TestPropertyMethod.do}"><input type="submit" value="form表单中,设置post提交"></form></li>
+        <li>
+            测试@RequestMapping的派生注解:<br>
+            <ol>
+                <li><a th:href="@{/test/TestGetMapping.do}">测试@GetMapping注解,a标签默认get提交</a></li>
+                <li><form method="post" th:action="@{/test/TestPostMapping.do}"><input type="submit" value="form表单中,测试@PostMapping提交"></form></li>
+                <li><form method="patch" th:action="@{/test/TestPatchMapping.do}"><input type="submit" value="form表单中,测试@PatchMapping提交"></form></li>
+            </ol>
+        </li>
+        <li><a th:href="@{/test/TestPropertyParams.do(name='张三',pwd=123,money=100)}">测试@RequestMapping的params属性</a></li>
+        <li><a th:href="@{/test/TestPropertyHeaders.do}">测试@RequestMapping的headers属性</a></li>
+        <li>
+            测试SpringMVC支持Ant风格的映射路径:测试 空格,*,?,%,=,/,\,&,.,中文字符
+            <!--注意: * % / \ 中文字符 访问400错误的请求-->
+            <ol>
+                <li><a th:href="@{/test/a1a/TestAnt.do}">a?a</a></li>
+                <li><a th:href="@{/test/b1b/TestAnt.do}">b*b</a></li>
+                <li><a th:href="@{/test/cc/1/TestAnt.do}">cc/**/</a></li>
+            </ol>
+        </li>
+        <li>
+            <form method="post" th:action="@{/test/TestRestful/101/zhangsan/123456.do}">
+                请输入用户id:<input type="text" name="uid"><br>
+                请输入用户名:<input type="text" name="username"><br>
+                请输入用户密码:<input type="password" name="password"><br>
+                <input type="submit">
+            </form>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h1></h1>
+</body>
+</html>
