@@ -9,8 +9,8 @@ public class TestRequestMapping {
     /*测试当类上有请求映射路径时
     前端请求需要把类和方法上的请求映射路径拼接访问
     * */
-    @RequestMapping("/TestClassRequestPath.do")
-    public String TestClassRequestPath() {
+    @RequestMapping("/testClassRequestPath.do")
+    public String testClassRequestPath() {
         return "success";
     }
 
@@ -18,21 +18,21 @@ public class TestRequestMapping {
     @RequestMapping(
             //以下两个请求映射路径都可以请求转发到success页面
             value = {
-                    "/TestPropertyValue.do",
-                    "/TestPropertyValue2.do"
+                    "/testPropertyValue.do",
+                    "/testPropertyValue2.do"
             }
     )
-    public String TestPropertyValue() {
+    public String testPropertyValue() {
         return "success";
     }
 
     //测试@RequestMapping的method属性
     @RequestMapping(
-            value = {"/TestPropertyMethod.do"},
+            value = {"/testPropertyMethod.do"},
             //声明请求映射可以匹配的请求方式
             method = {RequestMethod.POST}
     )
-    public String TestPropertyMethod() {
+    public String testPropertyMethod() {
         return "success";
     }
 
@@ -44,24 +44,24 @@ public class TestRequestMapping {
         处理patch请求的映射-->@PatchMapping
         处理delete请求的映射-->@DeleteMapping
     */
-    @GetMapping("/TestGetMapping.do")
-    public String TestGetMapping() {
+    @GetMapping("/testGetMapping.do")
+    public String testGetMapping() {
         return "success";
     }
 
-    @PostMapping("/TestPostMapping.do")
-    public String TestPostMapping() {
+    @PostMapping("/testPostMapping.do")
+    public String testPostMapping() {
         return "success";
     }
 
-    @PatchMapping("/TestPatchMapping.do")
-    public String TestPatchMapping() {
+    @PatchMapping("/testPatchMapping.do")
+    public String testPatchMapping() {
         return "success";
     }
 
     //测试@RequestMapping的params属性
     @RequestMapping(
-            value = {"/TestPropertyParams.do"},
+            value = {"/testPropertyParams.do"},
             method = {RequestMethod.POST, RequestMethod.GET},
             //注意params的四种表达式
             /* "params" 表示请求映射匹配的请求必须携带params参数
@@ -70,9 +70,10 @@ public class TestRequestMapping {
             *  "params!=value" 表示必须携带params参数且值必须不是value
             * */
             //下面表示: 请求中不能有id参数,必须有name参数,必须有pwd参数且值为123,必须有money参数且值不为0
+            //传参如果不按照表达式进行会报错400
             params = {"!id", "name", "pwd=123", "money!=0"}
     )
-    public String TestPropertyParams() {
+    public String testPropertyParams() {
         return "success";
     }
 
@@ -82,12 +83,12 @@ public class TestRequestMapping {
             * 参数表达式同params
             * */
             //若当前请求满足@RequestMapping的value和method属性,但是不满足headers属性,页面显示404 not find
-            value = {"/TestPropertyHeaders.do"},
+            value = {"/testPropertyHeaders.do"},
             method = {RequestMethod.POST, RequestMethod.GET},
             headers = {
                     "Host=localhost:8081"
             })
-    public String TestPropertyHeaders() {
+    public String testPropertyHeaders() {
         return "success";
     }
 
@@ -97,18 +98,18 @@ public class TestRequestMapping {
             测试SpringMVC支持ant风格的映射路径:测试 空格,*,?,%,=,/,\,&,.,中文字符
             注意: * % / \ 中文字符 访问400错误的请求
             * */
-            value = {"/a?a/TestAnt.do",
-                    "/b*b/TestAnt.do",
-                    "/cc/**/TestAnt.do"
+            value = {"/a?a/testAnt.do",
+                    "/b*b/testAnt.do",
+                    "/cc/**/testAnt.do"
             }
     )
-    public String TestAnt() {
+    public String testAnt() {
         return "success";
     }
 
     //测试SpringMVC支持restful风格的路径
-    @RequestMapping("/TestRestful/{id}/{username}/{password}.do")
-    public String TestRestful(@PathVariable("id") Integer id,@PathVariable("username") String username,@PathVariable("password") String password) {
+    @RequestMapping("/testRestful/{id}/{username}/{password}.do")
+    public String testRestful(@PathVariable("id") Integer id,@PathVariable("username") String username,@PathVariable("password") String password) {
         return "success";
     }
 }
