@@ -65,11 +65,9 @@ public class TestScopeObject {
 
     //使用servletAPI向application域对象共享数据
     @RequestMapping("/testApplication.do")
-    public String testApplication(HttpSession session,HttpSession request){
-        ServletContext app1 = request.getServletContext();
-        app1.setAttribute("testApplicationScopeByRequest", "hello,application");
-        ServletContext app2 = session.getServletContext();
-        app2.setAttribute("testApplicationScopeBySession", "hello,application");
+    public String testApplication(HttpSession session){
+        ServletContext app = session.getServletContext();
+        app.setAttribute("testApplication", "hello,application");
         return "success";
     }
 }

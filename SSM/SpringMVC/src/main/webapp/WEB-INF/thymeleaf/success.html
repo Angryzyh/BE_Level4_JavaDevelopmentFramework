@@ -7,10 +7,11 @@
 <body>
     <h1>成功访问页面！！！</h1>
     <ul>
-        <li th:text="${testRequestScope}"></li>
-        <li th:text="${session.testSessionScope}"></li>
-        <li th:text="${application.testApplicationScopeByRequest}"></li>
-        <li th:text="${application.testApplicationScopeByRequest}"></li>
+        <li th:text="'request域对象:'+${#request.getAttribute('testRequestScope')}"></li>
+        <li th:text="'model域对象:'+${#request.getAttribute('testModelScope')}"></li>
+        <li th:text="'session域对象:'+${session.testSessionScope}"></li>
+        <li th:text="'application域对象:'+${application.testApplication}"></li>
     </ul>
+    <a href="javascript:history.go(-1)">返回上1页</a>
 </body>
 </html>

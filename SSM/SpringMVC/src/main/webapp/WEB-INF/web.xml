@@ -38,6 +38,7 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
     <!--配置前端控制器-->
     <servlet>
         <servlet-name>dispatcherServlet</servlet-name>
@@ -45,7 +46,7 @@
         <!--配置springMVC配置文件的名称和位置-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:thymeleaf/ApplicationContext-SpringMVC.xml</param-value>
+            <param-value>classpath:ApplicationContext-SpringMVC.xml</param-value>
         </init-param>
         <!--将前端控制器的初始化时间提前到服务器启动时-->
         <load-on-startup>1</load-on-startup>

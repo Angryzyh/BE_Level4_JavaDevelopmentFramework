@@ -106,6 +106,14 @@
         <li><a th:href="@{/testSession.do}">通过servletAPI向session域对象共享数据</a></li>
         <li><a th:href="@{/testApplication.do}">通过servletAPI向application域对象共享数据</a></li>
     </ul>
+    <hr>
 
+    <h1>TestView.java</h1>
+    <ul>
+        <li><a th:href="@{/testThymeleafView.do}">测试ThymeleafView转发视图</a></li>
+        <li><a th:href="@{/testForward.do}">测试forward:转发，创建InternalResourceView视图</a></li>
+        <li><a th:href="@{/testRedirect.do}">测试redirect:转发，创建RedirectView视图</a></li>
+        <li><a th:href="@{/testThymeleafViewByModelAndView.do}">测试ModelAndView 对象创建视图</a></li>
+    </ul>
 </body>
 </html>
