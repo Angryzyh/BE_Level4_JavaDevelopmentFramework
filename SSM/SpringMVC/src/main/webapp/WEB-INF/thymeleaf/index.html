@@ -115,5 +115,36 @@
         <li><a th:href="@{/testRedirect.do}">测试redirect:转发，创建RedirectView视图</a></li>
         <li><a th:href="@{/testThymeleafViewByModelAndView.do}">测试ModelAndView 对象创建视图</a></li>
     </ul>
+    <hr>
+
+    <h1>TestRESTfulController.java</h1>
+    <ul>
+        <li>测试RESTful发送get请求，查询全部信息：<a th:href="@{/user}">查询所有用户信息</a></li>
+        <li>测试RESTful发送get请求+接参数，查询条件信息：<a th:href="@{/user/1}">根据id查询用户信息</a></li>
+        <li>
+            测试RESTful发送post请求，添加信息：
+            <form th:action="@{/user}" method="post">
+                用户名：<input type="text" name="username"><br>
+                密码：<input type="password" name="password"><br>
+                <input type="submit" value="添加"><br>
+            </form>
+        </li>
+        <li>
+            测试RESTful发送post请求，filter过滤器拦截，转换成put请求：
+            <form th:action="@{/user22}" method="post">
+                <!--用于发生put请求-->
+                <input type="hidden" name="_method" value="PUT">
+                用户名：<input type="text" name="username"><br>
+                密码：<input type="password" name="password"><br>
+                <input type="submit" value="修改"><br>
+            </form>
+        </li>
+    </ul>
+    <hr>
+
+    <h1>EmployeeController.java</h1>
+    <ul>
+        <li><a th:href="@{/emp/employee}">进入员工页面</a></li>
+    </ul>
 </body>
 </html>
