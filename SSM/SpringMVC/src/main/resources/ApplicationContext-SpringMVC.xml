@@ -43,4 +43,7 @@
     </bean>
 -->
 
+    <!--配置文件上传解析器，将上传的文件封装成MultipartFile-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
 </beans>

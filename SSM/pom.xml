@@ -52,11 +52,17 @@
         <junit5.version>5.8.2</junit5.version>
         <log4j.version>2.17.2</log4j.version>
         <slf4.version>1.7.36</slf4.version>
+        <!--spring-->
         <spring.version>5.3.21</spring.version>
+        <!--Dao层-->
         <druid.version>1.2.11</druid.version>
         <mysql.version>8.0.29</mysql.version>
+        <!--Service层-->
+        <fileupload.version>1.4</fileupload.version>
+        <!--Controller层-->
         <servlet.version>4.0.1</servlet.version>
         <thymeleaf.version>3.0.15.RELEASE</thymeleaf.version>
+        <json.version>2.13.3</json.version>
     </properties>
 
     <!--下载引入的jar包-->
@@ -182,16 +188,20 @@
             </dependency>
 
             <!--service层jar包
-            |
+            | fileupload 文件上传
             |
             -->
-
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${fileupload.version}</version>
+            </dependency>
 
             <!--controller层jar包
             | spring-webmvc 模块
             | servlet
             | thymeleaf-spring
-            |
+            | jackson-databind
             |-->
             <!--springMVC-->
             <dependency>
@@ -209,6 +219,11 @@
                 <groupId>org.thymeleaf</groupId>
                 <artifactId>thymeleaf-spring5</artifactId>
                 <version>${thymeleaf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${json.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -48,7 +48,7 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
-        <!--spring核心-->
+        <!--Spring核心-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -74,7 +74,7 @@
             <artifactId>spring-aspects</artifactId>
         </dependency>
 
-        <!--dao层-->
+        <!--Dao层-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

@@ -146,5 +146,68 @@
     <ul>
         <li><a th:href="@{/emp/employee}">进入员工页面</a></li>
     </ul>
+    <hr>
+
+    <h1>TestHttpMessageConverter.java</h1>
+    <ul>
+        <li>
+            <form th:action="@{/testRequestBody.do}" method="post">
+                <input type="text" name="username">
+                <input type="text" name="password">
+                <input type="submit" value="测试@RequestBody注解">
+            </form>
+        </li>
+        <li>
+            <form th:action="@{/testRequestEntity.do}" method="post">
+                <input type="text" name="username">
+                <input type="text" name="password">
+                <input type="submit" value="测试RequestEntity类">
+            </form>
+        </li>
+        <li><a th:href="@{/testResponse.do}">测试使用servlet-api 获取响应对象，向前端传送数据</a></li>
+        <li><a th:href="@{/testResponseBody.do}">测试@ResponseBody注解控制器,控制器返回值输出到前端</a></li>
+        <li><a th:href="@{/testResponseBodyReturnUser.do}">测试@ResponseBody注解控制器,将Java对象直接作为控制器方法的返回值返回，就会自动转换为Json格式的字符串</a></li>
+        <li><a th:href="@{/testResponseBodyByReturnMapUser.do}">测试@ResponseBody注解控制器,控制器返回值为map集合,value为user对象</a></li>
+        <li><a th:href="@{/testResponseBodyByReturnListUser.do}">测试@ResponseBody注解控制器,控制器返回值为list集合,集合元素为user对象</a></li>
+        <li>
+            <div id="app">
+                <a @click="testAxios" th:href="@{/testResponseBodyByAxios.do}">SpringMVC处理ajax</a>
+            </div>
+            <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+            <script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
+            <script type="text/javascript">
+                new Vue({
+                    el:"#app",
+                    methods:{
+                        testAxios:function (event) {
+                            axios({
+                                method:"post",
+                                url:event.target.href,
+                                params:{
+                                    username:"admin",
+                                    password:"123456"
+                                }
+                            }).then(function (response) {
+                                alert(response.data);
+                            });
+                            event.preventDefault();
+                        }
+                    }
+                });
+            </script>
+        </li>
+    </ul>
+    <hr>
+
+    <h1>TestFileUpAndDownload.java</h1>
+    <ul>
+        <li><a th:href="@{/testDown.do}">下载</a></li>
+        <li>
+            <form th:action="@{/testUp.do}" method="post" enctype="multipart/form-data">
+                头像：<input type="file" name="photo"><br>
+                <input type="submit" value="上传">
+            </form>
+        </li>
+    </ul>
 </body>
 </html>

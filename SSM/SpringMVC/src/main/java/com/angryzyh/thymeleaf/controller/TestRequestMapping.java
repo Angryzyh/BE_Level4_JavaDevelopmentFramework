@@ -112,4 +112,9 @@ public class TestRequestMapping {
     public String testRestful(@PathVariable("id") Integer id,@PathVariable("username") String username,@PathVariable("password") String password) {
         return "success";
     }
+
+    /* @RequestMapping最后两个属性
+    * consumes:消费  指定请求的提交内容类型  例如application/json, text/html;
+    * produces:生产  指定返回值类型  例如text/html;charset=UTF-8
+    * */
 }
