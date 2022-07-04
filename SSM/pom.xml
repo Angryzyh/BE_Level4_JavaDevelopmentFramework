@@ -15,6 +15,7 @@
     <modules>
         <module>Spring</module>
         <module>SpringMVC</module>
+        <module>SpringMVC-annotation</module>
     </modules>
 
     <!--模式管理-->

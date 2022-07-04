@@ -78,5 +78,4 @@
         <!--exceptionAttribute属性在value里面设置一个属性名，将出现的异常信息在请求域中进行共享-->
         <property name="exceptionAttribute" value="ex"/>
     </bean>
-
 </beans>
