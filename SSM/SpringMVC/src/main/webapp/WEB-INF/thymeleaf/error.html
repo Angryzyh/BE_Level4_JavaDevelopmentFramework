@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>error.html页面</title>
+</head>
+<body>
+    <h1>错误页面</h1>
+    <p th:text="'错误原因:'+${#request.getAttribute('ex')}"></p>
+</body>
+</html>

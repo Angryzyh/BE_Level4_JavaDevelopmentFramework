@@ -9,4 +9,11 @@ public class TestController {
     public String toIndex() {
         return "index";
     }
+
+    //测试异常处理器
+    @RequestMapping("/testHandlerExceptionResolver.do")
+    public String toError() {
+        int i = 10 / 0;
+        return "success";
+    }
 }
