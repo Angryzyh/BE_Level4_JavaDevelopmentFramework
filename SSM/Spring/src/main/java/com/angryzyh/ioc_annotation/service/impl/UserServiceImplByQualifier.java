@@ -1,7 +1,7 @@
 package com.angryzyh.ioc_annotation.service.impl;
 
-import com.angryzyh.ioc_annotation.bean.User;
-import com.angryzyh.ioc_annotation.bean.UserByValue;
+import com.angryzyh.ioc_annotation.model.User;
+import com.angryzyh.ioc_annotation.model.UserByValue;
 import com.angryzyh.ioc_annotation.dao.UserDao;
 import com.angryzyh.ioc_annotation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

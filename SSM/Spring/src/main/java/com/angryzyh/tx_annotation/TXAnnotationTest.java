@@ -1,6 +1,6 @@
 package com.angryzyh.tx_annotation;
 
-import com.angryzyh.tx_annotation.bean.Custom;
+import com.angryzyh.tx_annotation.model.Custom;
 import com.angryzyh.tx_annotation.service.impl.CustomServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

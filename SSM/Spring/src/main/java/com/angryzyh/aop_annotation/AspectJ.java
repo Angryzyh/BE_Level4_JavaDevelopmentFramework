@@ -1,6 +1,6 @@
 package com.angryzyh.aop_annotation;
 
-import com.angryzyh.aop_annotation.bean.User;
+import com.angryzyh.aop_annotation.model.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

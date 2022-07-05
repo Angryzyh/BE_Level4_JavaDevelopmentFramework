@@ -1,6 +1,6 @@
 package com.angryzyh.jdbctemplate.service.impl;
 
-import com.angryzyh.jdbctemplate.bean.Bean;
+import com.angryzyh.jdbctemplate.model.Bean;
 import com.angryzyh.jdbctemplate.dao.BeanDao;
 import com.angryzyh.jdbctemplate.service.BeanService;
 import org.springframework.beans.factory.annotation.Autowired;

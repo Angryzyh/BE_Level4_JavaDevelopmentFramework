@@ -1,6 +1,6 @@
 package com.angryzyh.thymeleaf.controller;
 
-import com.angryzyh.thymeleaf.bean.User;
+import com.angryzyh.thymeleaf.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;

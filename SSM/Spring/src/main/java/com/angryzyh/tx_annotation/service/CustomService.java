@@ -1,6 +1,6 @@
 package com.angryzyh.tx_annotation.service;
 
-import com.angryzyh.tx_annotation.bean.Custom;
+import com.angryzyh.tx_annotation.model.Custom;
 
 public interface CustomService {
     //转账

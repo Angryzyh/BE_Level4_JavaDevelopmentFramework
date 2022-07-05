@@ -1,6 +1,6 @@
 package com.angryzyh.jdbctemplate;
 
-import com.angryzyh.jdbctemplate.bean.Bean;
+import com.angryzyh.jdbctemplate.model.Bean;
 import com.angryzyh.jdbctemplate.service.impl.BeanServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

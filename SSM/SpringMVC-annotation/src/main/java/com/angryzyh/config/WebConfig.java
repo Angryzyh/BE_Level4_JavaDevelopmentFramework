@@ -58,7 +58,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addViewController("/test/hello").setViewName("hello");
     }
 
-    //配置异常映射
+    //配置处理程序异常解析器
     @Override
     public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
         SimpleMappingExceptionResolver exceptionResolver = new SimpleMappingExceptionResolver();

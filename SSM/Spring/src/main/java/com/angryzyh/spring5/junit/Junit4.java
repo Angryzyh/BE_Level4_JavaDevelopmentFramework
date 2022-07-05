@@ -1,6 +1,6 @@
 package com.angryzyh.spring5.junit;
 
-import com.angryzyh.spring5.junit.bean.Booker;
+import com.angryzyh.spring5.junit.model.Booker;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.angryzyh.restful.bean.Employee;
+import com.angryzyh.restful.model.Employee;
 import org.springframework.stereotype.Repository;
 
 @Repository

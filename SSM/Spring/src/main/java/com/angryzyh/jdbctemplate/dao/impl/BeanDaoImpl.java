@@ -1,6 +1,6 @@
 package com.angryzyh.jdbctemplate.dao.impl;
 
-import com.angryzyh.jdbctemplate.bean.Bean;
+import com.angryzyh.jdbctemplate.model.Bean;
 import com.angryzyh.jdbctemplate.dao.BeanDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

@@ -1,6 +1,6 @@
 package com.angryzyh.ioc_xml.dao.impl;
 
-import com.angryzyh.ioc_xml.bean.User;
+import com.angryzyh.ioc_xml.model.User;
 import com.angryzyh.ioc_xml.dao.UserDao;
 
 public class UserDaoImpl implements UserDao {

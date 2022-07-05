@@ -1,6 +1,6 @@
 package com.angryzyh.tx_xml;
 
-import com.angryzyh.tx_xml.bean.Custom;
+import com.angryzyh.tx_xml.model.Custom;
 import com.angryzyh.tx_xml.service.impl.CustomServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

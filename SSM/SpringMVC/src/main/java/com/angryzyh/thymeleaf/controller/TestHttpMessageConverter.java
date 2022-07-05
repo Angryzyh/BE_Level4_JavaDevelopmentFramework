@@ -1,12 +1,11 @@
 package com.angryzyh.thymeleaf.controller;
 
-import com.angryzyh.thymeleaf.bean.User;
+import com.angryzyh.thymeleaf.model.User;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

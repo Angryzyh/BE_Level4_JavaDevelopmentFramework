@@ -1,6 +1,6 @@
 package com.angryzyh.jdbctemplate.service;
 
-import com.angryzyh.jdbctemplate.bean.Bean;
+import com.angryzyh.jdbctemplate.model.Bean;
 
 import java.util.List;
 

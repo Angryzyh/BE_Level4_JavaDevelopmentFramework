@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angryzyh.dao.UserMapper">
+
+    <!--****************************-->
+    <!--*TestDemo.java测试mybatis环境*-->
+    <!--****************************-->
+    <!--int insertUser()-->
+    <insert id="insertUser">
+        insert into ssm_mybatis_user
+        values (null, '小王', '123', 3, '男', '11@qq.com');
+    </insert>
+    <!--List<User> getAllUser()-->
+    <select id="getAllUser" resultType="user">
+        select * from ssm_mybatis_user
+    </select>
+
+    <!--***************************************-->
+    <!--*TestSqlGetParams.java MyBatis获取参数值*-->
+    <!--***************************************-->
+    <!--User getUserById1(Integer id)-->
+    <!--1.1 使用${}获取参数，相当于字符串拼接-->
+    <select id="getUserById1" resultType="user">
+        select *
+        from ssm_mybatis_user
+        where user_id = '${id}';
+    </select>
+    <!--User getUserById2(Integer id)-->
+    <!--1.2 使用#{}获取参数，相当于?问号占位符-->
+    <select id="getUserById2" resultType="user">
+        select *
+        from ssm_mybatis_user
+        where user_id = #{id};
+    </select>
+    <!--User checkLogin(String username, String password)-->
+    <!--2. 多个参数-->
+    <select id="checkLogin" resultType="user">
+        select *
+        from ssm_mybatis_user
+        where user_name = #{arg0}
+          and user_password = #{arg1};
+    </select>
+    <!--User checkLoginByMap(Map<String,Object> map)-->
+    <!--3. 多个参数采用map集合封装-->
+    <select id="checkLoginByMap" resultType="User">
+        select *
+        from ssm_mybatis_user
+        where user_name = #{username}
+          and user_password = #{password};
+    </select>
+    <!--int insertUserByPOJO(User user)-->
+    <!--4. 多个参数采用POJO封装-->
+    <insert id="insertUserByPOJO">
+        insert into ssm_mybatis_user
+        values (null, #{userName}, #{userPassword}, #{userAge}, #{userSex}, #{userEmail});
+    </insert>
+    <!--User checkLoginByAtParam(String username, String password)-->
+    <!--5. 形参采用@Param注解-->
+    <select id="checkLoginByAtParam" resultType="User">
+        select *
+        from ssm_mybatis_user
+        where user_name = #{username}
+          and user_password = #{password};
+    </select>
+
+    <!--**********************************-->
+    <!--*TestQuerySql.java 查询结果返回值类型*-->
+    <!--**********************************-->
+    <!--1.查询一个实体类对象,返回值为User-->
+    <!--2.查询全部实体类对象,返回值为List<User>-->
+    <!--3.聚合函数查询-->
+    <select id="getUserCount" resultType="Integer">
+        select count(1) from ssm_mybatis_user
+    </select>
+    <!--4.查询一条数据为map集合-->
+    <select id="getUserIntoMap" resultType="java.util.Map">
+        select *
+        from ssm_mybatis_user
+        where user_id = #{id};
+    </select>
+    <!--5.1 查询多条数据为map集合, 返回值为list集合内嵌套map元素-->
+    <select id="getAllUserIntoListMap" resultType="java.util.Map">
+        select * from ssm_mybatis_user
+    </select>
+    <!--5.2 查询多条数据为map集合, 方法上使用@mapkey注解绑定唯一参数-->
+    <select id="getAllUserIntoMapKey" resultType="java.util.Map">
+        select * from ssm_mybatis_user
+    </select>
+
+    <!--**********************************-->
+    <!--*TestSpecialSql.java 特殊操作sql案例*-->
+    <!--**********************************-->
+    <!--1.模糊查询-->
+    <select id="getUserByLikeName" resultType="User">
+        <!--select * from ssm_mybatis_user where user_name like '%${username}%'-->
+        <!--select * from ssm_mybatis_user where user_name like concat('%',#{username},'%')-->
+        select * from ssm_mybatis_user where user_name like "%"#{username}"%"
+    </select>
+    <!--2.批量删除-->
+    <delete id="batchDeleteUserById">
+        delete from ssm_mybatis_user where user_id in (${ids})
+    </delete>
+    <!--3.动态设置表名-->
+    <select id="getUserByTable" resultType="User">
+        select * from ${tableName}
+    </select>
+    <!--4.添加功能获取自增的主键-->
+    <insert id="insertUserByAutoGetId" useGeneratedKeys="true" keyProperty="userId">
+        insert into ssm_mybatis_user
+        values (null, #{userName}, #{userPassword}, #{userAge}, #{userSex}, #{userEmail});
+    </insert>
+
+</mapper>

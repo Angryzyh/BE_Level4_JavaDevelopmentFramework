@@ -1,8 +1,8 @@
 package com.angryzyh.ioc_xml;
 
-import com.angryzyh.ioc_xml.bean.Collection;
-import com.angryzyh.ioc_xml.bean.Employees;
-import com.angryzyh.ioc_xml.bean.User;
+import com.angryzyh.ioc_xml.model.Collection;
+import com.angryzyh.ioc_xml.model.Employees;
+import com.angryzyh.ioc_xml.model.User;
 import com.angryzyh.ioc_xml.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

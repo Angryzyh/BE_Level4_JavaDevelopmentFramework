@@ -1,11 +1,8 @@
 package com.angryzyh.spring5.junit;
 
-import com.angryzyh.spring5.junit.bean.Booker;
+import com.angryzyh.spring5.junit.model.Booker;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /*@ExtendWith(SpringExtension.class)*/ //导入junit5框架

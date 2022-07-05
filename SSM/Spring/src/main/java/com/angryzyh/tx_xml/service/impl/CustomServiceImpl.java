@@ -1,6 +1,6 @@
 package com.angryzyh.tx_xml.service.impl;
 
-import com.angryzyh.tx_xml.bean.Custom;
+import com.angryzyh.tx_xml.model.Custom;
 import com.angryzyh.tx_xml.dao.CustomDao;
 import com.angryzyh.tx_xml.service.CustomService;
 import org.springframework.beans.factory.annotation.Autowired;

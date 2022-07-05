@@ -1,6 +1,6 @@
 package com.angryzyh.spring5.lambda;
 
-import com.angryzyh.spring5.lambda.bean.Book;
+import com.angryzyh.spring5.lambda.model.Book;
 import org.junit.Test;
 import org.springframework.context.support.GenericApplicationContext;
 

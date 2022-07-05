@@ -1,6 +1,6 @@
 package com.angryzyh.restful.controller;
 
-import com.angryzyh.restful.bean.Employee;
+import com.angryzyh.restful.model.Employee;
 import com.angryzyh.restful.dao.EmployeeDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

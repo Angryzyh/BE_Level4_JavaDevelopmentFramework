@@ -41,7 +41,7 @@
             <!--<tx:method name="transferM*" propagation="REQUIRED"/>-->
         </tx:attributes>
     </tx:advice>
-    <!--设置代理为cglib代理 默认为false jdk代理-->
+    <!--设置代理为cglib代理  默认为false是jdk代理-->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--3. 配置切入点和切面-->
     <aop:config>

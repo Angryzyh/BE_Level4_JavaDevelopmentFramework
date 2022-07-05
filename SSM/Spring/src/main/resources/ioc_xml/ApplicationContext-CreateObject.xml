@@ -5,6 +5,6 @@
 
     <!--scope:singleton为单例,在加载xml配置文件时就创建容器对象-->
     <!--scope:prototype为多例,在使用时才创建容器对象-->
-    <bean id="user1" class="com.angryzyh.ioc_xml.bean.User" scope="singleton"/>
-    <bean id="user2" class="com.angryzyh.ioc_xml.bean.User" scope="prototype"/>
+    <bean id="user1" class="com.angryzyh.ioc_xml.model.User" scope="singleton"/>
+    <bean id="user2" class="com.angryzyh.ioc_xml.model.User" scope="prototype"/>
 </beans>

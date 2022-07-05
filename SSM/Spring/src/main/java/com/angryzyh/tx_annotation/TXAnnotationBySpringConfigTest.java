@@ -1,6 +1,6 @@
 package com.angryzyh.tx_annotation;
 
-import com.angryzyh.tx_annotation.bean.Custom;
+import com.angryzyh.tx_annotation.model.Custom;
 import com.angryzyh.tx_annotation.config.SpringConfig;
 import com.angryzyh.tx_annotation.service.impl.CustomServiceImpl;
 import org.junit.Test;
@@ -17,6 +17,6 @@ public class TXAnnotationBySpringConfigTest {
     public void transferMoneyTest() {
         custom1.setcName("jack");
         custom2.setcName("lucy");
-        customService.transferMoney(custom1, custom2, 100);
+        this.customService.transferMoney(custom1, custom2, 100);
     }
 }

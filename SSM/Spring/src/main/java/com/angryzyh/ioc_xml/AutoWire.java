@@ -1,6 +1,6 @@
 package com.angryzyh.ioc_xml;
 
-import com.angryzyh.ioc_xml.bean.Employees;
+import com.angryzyh.ioc_xml.model.Employees;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

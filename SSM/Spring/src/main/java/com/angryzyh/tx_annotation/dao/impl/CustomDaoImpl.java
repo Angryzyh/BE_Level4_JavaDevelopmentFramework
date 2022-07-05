@@ -1,6 +1,6 @@
 package com.angryzyh.tx_annotation.dao.impl;
 
-import com.angryzyh.tx_annotation.bean.Custom;
+import com.angryzyh.tx_annotation.model.Custom;
 import com.angryzyh.tx_annotation.dao.CustomDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

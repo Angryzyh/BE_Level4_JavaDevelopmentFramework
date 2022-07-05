@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--导入外部配置属性文件-->
+    <properties resource="jdbc.properties"/>
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--日志打印-->
+        <setting name="logImpl" value="LOG4J2" />
+    </settings>
+    <!--起别名-->
+    <typeAliases>
+        <!--以包为单位，设置改包下所有的类型都拥有默认的别名，即类名且不区分大小写-->
+        <package name="com.angryzyh.model"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--一次性扫描所有mapper.xml文件-->
+        <package name="com.angryzyh.dao"/>
+    </mappers>
+</configuration>

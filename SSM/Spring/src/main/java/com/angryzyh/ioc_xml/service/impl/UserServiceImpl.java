@@ -1,6 +1,6 @@
 package com.angryzyh.ioc_xml.service.impl;
 
-import com.angryzyh.ioc_xml.bean.User;
+import com.angryzyh.ioc_xml.model.User;
 import com.angryzyh.ioc_xml.dao.UserDao;
 import com.angryzyh.ioc_xml.service.UserService;
 

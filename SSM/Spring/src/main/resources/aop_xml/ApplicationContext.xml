@@ -7,13 +7,13 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--创建需要被增强的对象-->
-    <bean id="user" class="com.angryzyh.aop_xml.bean.User"/>
+    <bean id="user" class="com.angryzyh.aop_xml.model.User"/>
     <!--创建增强类对象-->
-    <bean id="userProxy" class="com.angryzyh.aop_xml.bean.UserProxy"/>
+    <bean id="userProxy" class="com.angryzyh.aop_xml.model.UserProxy"/>
     <!--配置aop增强-->
     <aop:config>
         <!--切入点-->
-        <aop:pointcut id="p" expression="execution(* com.angryzyh.aop_xml.bean.User.add(..))"/>
+        <aop:pointcut id="p" expression="execution(* com.angryzyh.aop_xml.model.User.add(..))"/>
         <!--配置切面-->
         <aop:aspect ref="userProxy">
             <aop:before method="before" pointcut-ref="p"/>
