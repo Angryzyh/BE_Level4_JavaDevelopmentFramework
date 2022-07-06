@@ -1,4 +1,4 @@
-package com.angryzyh;
+package com.angryzyh.onetable;
 
 import com.angryzyh.dao.UserMapper;
 import com.angryzyh.model.User;

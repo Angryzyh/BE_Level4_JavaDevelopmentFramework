@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angryzyh.dao.EmployeeMapper">
+
+    <!--********************************************************************-->
+    <!--*TestResultMap.java 测试resultMap将实体类属性名与数据库表中的字段建立映射关系*-->
+    <!--********************************************************************-->
+    <!--通常设置成resultType，通过配置文件设置<setting name="mapUnderscoreToCamelCase" value="true"/>来开启自动转换-->
+    <!--但当数据库表名不规范时，需要手动设置resultMap映射关系-->
+    <!--查询全部员工信息-->
+    <resultMap id="empResultMap" type="employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empAge" column="emp_age"/>
+        <result property="empSex" column="emp_sex"/>
+        <result property="empEmail" column="emp_email"/>
+    </resultMap>
+    <select id="getAllEmp" resultMap="empResultMap">
+        select * from ssm_mybatis_employee
+    </select>
+
+    <!--*****************************-->
+    <!--*TestManyToOne.java 3种多对一*-->
+    <!--*****************************-->
+    <!--1.级联操作,查询全部员工,关联到每个人的所在部门-->
+    <resultMap id="empResultMapUseCascade" type="employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empAge" column="emp_age"/>
+        <result property="empSex" column="emp_sex"/>
+        <result property="empEmail" column="emp_email"/>
+        <!--property：为empPOJO内的set注入dept属性-->
+        <!--column：为数据库中字段名-->
+        <result property="dept.deptId" column="dept_id"/>
+        <result property="dept.deptName" column="dept_name"/>
+    </resultMap>
+    <select id="getAllEmpWithDeptUseCascade" resultMap="empResultMapUseCascade">
+        select * from ssm_mybatis_employee left join ssm_mybatis_department on d_id = dept_id
+    </select>
+    <!--2.association标签实现查询全部员工,关联到每个人的所在部门-->
+    <resultMap id="empResultMapUseAssociation" type="employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empAge" column="emp_age"/>
+        <result property="empSex" column="emp_sex"/>
+        <result property="empEmail" column="emp_email"/>
+        <!--association的property为empPOJO的属性  javaType为deptPOJO-->
+        <association property="dept" javaType="department">
+            <!--property：为deptPOJD属性，column：为数据库对应字段-->
+            <id property="deptId" column="dept_id"/>
+            <result property="deptName" column="dept_name"/>
+        </association>
+    </resultMap>
+    <select id="getAllEmpWithDeptUseAssociation" resultMap="empResultMapUseAssociation">
+        select * from ssm_mybatis_employee left join ssm_mybatis_department on d_id = dept_id
+    </select>
+    <!--3. 分布查询，先查询员工信息，再查询部门信息-->
+    <resultMap id="empResultMapWithDept" type="employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empAge" column="emp_age"/>
+        <result property="empSex" column="emp_sex"/>
+        <result property="empEmail" column="emp_email"/>
+        <!--property:为empPOJO的属性，select：为其他语句，column：为select语句的查询条件，注入进select的sql语句中-->
+        <!--fetchType:设置是否延迟加载，lazy延迟加载，eager非延迟加载-->
+        <association property="dept"
+                     select="com.angryzyh.dao.DepartmentMapper.getEmpWithDept"
+                     column="d_id"
+                     fetchType="eager"
+        />
+    </resultMap>
+    <select id="getAllEmpWithDept" resultMap="empResultMapWithDept">
+        select * from ssm_mybatis_employee
+    </select>
+
+    <!--*****************************************-->
+    <!--*TestOneToMany.java 关联这里测试一对多映射1.2*-->
+    <!--*****************************************-->
+    <!--1.2 一对多，第一步查询部门信息，第二部查询员工信息-->
+    <resultMap id="empResultMapWithDeptByDeptId" type="employee">
+        <id property="empId" column="emp_id"/>
+        <result property="empName" column="emp_name"/>
+        <result property="empAge" column="emp_age"/>
+        <result property="empSex" column="emp_sex"/>
+        <result property="empEmail" column="emp_email"/>
+    </resultMap>
+    <select id="getAllEmpWithDeptByDeptId" resultMap="empResultMapWithDeptByDeptId">
+        select *
+        from ssm_mybatis_employee
+        where d_id = #{dId};
+    </select>
+</mapper>

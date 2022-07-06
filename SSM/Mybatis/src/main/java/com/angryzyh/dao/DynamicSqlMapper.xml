@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angryzyh.dao.DynamicSqlMapper">
+
+    <!--二级缓存:二级缓存是SqlSessionFactory级别，通过同一个SqlSessionFactory创建的SqlSession查询的结果会被缓存；此后若再次执行相同的查询语句，结果就会从缓存中获取 -->
+    <!--开启二级缓存的4个步骤-->
+    <!--1.在核心配置文件中，设置全局配置属性cacheEnabled="true"，默认为true，不需要设置-->
+    <!--2.配置开启二级缓存-->
+    <cache/>
+    <!--3.二级缓存必须在SqlSession关闭或提交之后有效-->
+    <!--4.查询的数据所转换的实体类类型必须实现序列化的接口-->
+    <!--使二级缓存失效的情况：两次查询之间执行了任意地增删改，会使一级和二级缓存同时失效-->
+
+    <!--1.<if>标签 -->
+    <!--注意:null必须小写-->
+    <!--注意: 第一个if标签前加 1=1 可以防止出现 where and 的情况-->
+    <!--注意: 只用if,当没有一个条件满足时 where 关键词将暴露在最后-->
+    <select id="getAllEmpUseIf" resultType="employee">
+        select * from ssm_mybatis_employee where 1=1
+        <if test="empName !=null and empName !='' ">
+            and emp_name = #{empName}
+        </if>
+        <if test="empAge !=null and empAge !='' ">
+            and emp_age = #{empAge}
+        </if>
+        <if test="empSex !=null and empSex !=''">
+            and emp_sex = #{empSex}
+        </if>
+        <if test="empEmail !=null and empEmail !='' ">
+            and emp_email = #{empEmail}
+        </if>
+    </select>
+    <!--2. <where>标签 -->
+    <!--注意: <where>标签会自动去掉<if>标签内多余的and-->
+    <!--注意: and必须在 if标签内的前面.不能在后面-->
+    <select id="getAllEmpUseWhere" resultType="employee">
+        select * from ssm_mybatis_employee
+        <where>
+            <if test="empName !=null and empName !='' ">
+                and emp_name = #{empName}
+            </if>
+            <if test="empAge !=null and empAge !='' ">
+                and emp_age = #{empAge}
+            </if>
+            <if test="empSex !=null and empSex !=''">
+                and emp_sex = #{empSex}
+            </if>
+            <if test="empEmail !=null and empEmail !='' ">
+                and emp_email = #{empEmail}
+            </if>
+        </where>
+    </select>
+
+    <!--3.<trim>标签实现单个插入-->
+    <insert id="insertAllEmpUseTrim">
+        <trim prefix="insert into ssm_mybatis_employee(" suffix=")" suffixOverrides=",">
+            <if test="empName !=null and empName !=''" >
+                emp_name,
+            </if>
+            <if test="empAge !=null and empAge !=''">
+                emp_age,
+            </if>
+            <if test="empSex!=null and empSex !=''">
+                emp_sex,
+            </if>
+            <if test="empEmail !=null and empEmail !=''">
+                emp_email
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="empName !=null and empName !=''">
+               #{empName},
+            </if>
+            <if test="empAge !=null and empAge !=''">
+                #{empAge},
+            </if>
+            <if test="empSex !=null and empSex !=''">
+                #{empSex},
+            </if>
+            <if test="empEmail !=null and empEmail !=''">
+                #{empEmail}
+            </if>
+        </trim>
+    </insert>
+
+    <!--4.<choose>、<when>、<otherwise>  嵌套判断  查询员工 ，匹配有优先级根据when的顺序-->
+    <select id="getEmpUseChoose" resultType="employee">
+        select * from ssm_mybatis_employee
+        <where>
+            <choose>
+                <when test="empName !=null and empName !=''">
+                    emp_name=#{empName}
+                </when>
+                <when test="empAge !=null and empAge !=''">
+                    emp_age=#{empAge}
+                </when>
+                <when test="empSex !=null and empSex !=''">
+                    emp_sex=#{empSex}
+                </when>
+                <when test="empEmail !=null and empEmail !=''">
+                    emp_email=#{empEmail}
+                </when>
+                <otherwise>
+                    null
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <!--5.<foreach>标签实现批量添加-->
+    <insert id="insertEmpUseForeach">
+        insert into ssm_mybatis_employee values
+        <foreach collection="emps" item="emp" separator=",">
+            (null,#{emp.empName},#{emp.empAge},#{emp.empSex},#{emp.empEmail},null)
+        </foreach>
+    </insert>
+
+    <!--6.<foreach>标签 实现批量删除-->
+    <delete id="deleteEmpUseForeach">
+        delete from ssm_mybatis_employee where emp_id in
+        <foreach collection="ids" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--7.<sql>标签 <include>标签导入sql片段 查询全部员工信息-->
+    <sql id="empColumns">
+        emp_id,emp_name,emp_age,emp_sex,emp_email
+    </sql>
+    <select id="getEmpUseSqlAndInclude" resultType="Employee">
+        select <include refid="empColumns"/> from ssm_mybatis_employee
+    </select>
+
+</mapper>

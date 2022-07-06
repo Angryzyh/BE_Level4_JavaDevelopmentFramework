@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.angryzyh.dao.DepartmentMapper">
+
+    <!--******************************************-->
+    <!--*TestManyToOne.java 关联这里测试多对一映射3.2*-->
+    <!--******************************************-->
+    <!--3.2 多对一，分布查询，第二步，查询部门信息-->
+    <resultMap id="deptResultMap" type="department">
+        <id property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+    </resultMap>
+    <select id="getEmpWithDept" resultMap="deptResultMap">
+        select * from ssm_mybatis_department where dept_id =#{did}
+    </select>
+    <!--********************************-->
+    <!--*TestOneToMany.java 测试一对多映射*-->
+    <!--********************************-->
+    <!--1.1 一对多，分布查询，第一步查询部门信息，查询部门下的员工信息，一个部门会查出多个员工信息-->
+    <resultMap id="deptResultMapWithEmps" type="department">
+        <id property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+        <collection property="emps"
+                    select="com.angryzyh.dao.EmployeeMapper.getAllEmpWithDeptByDeptId"
+                    column="dept_id"
+                    fetchType="eager"/>
+    </resultMap>
+    <select id="getDeptWithEmps" resultMap="deptResultMapWithEmps">
+        select * from ssm_mybatis_department
+    </select>
+
+    <!--2.collection标签 内嵌emp，两表关联查询-->
+    <resultMap id="deptResultMapWithEmpByCollection" type="department">
+        <id property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+        <collection property="emps" ofType="employee">
+            <id property="empId" column="emp_id"/>
+            <result property="empName" column="emp_name"/>
+            <result property="empAge" column="emp_age"/>
+            <result property="empSex" column="emp_sex"/>
+            <result property="empEmail" column="emp_email"/>
+        </collection>
+    </resultMap>
+    <select id="getDeptWithEmpByCollection" resultMap="deptResultMapWithEmpByCollection">
+        select * from ssm_mybatis_department left join ssm_mybatis_employee on d_id = dept_id where dept_id = #{deptId}
+    </select>
+</mapper>

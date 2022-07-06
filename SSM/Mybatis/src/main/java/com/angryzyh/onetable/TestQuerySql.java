@@ -1,4 +1,4 @@
-package com.angryzyh;
+package com.angryzyh.onetable;
 
 import com.angryzyh.dao.UserMapper;
 import com.angryzyh.utils.SqlSessionUtil;
@@ -28,6 +28,7 @@ public class TestQuerySql {
     public void testGetUserIntoMap() {
         Map<String, Object> map = mapper.getUserIntoMap(1);
         System.out.println("map = " + map);
+        map.forEach((key,value)-> System.out.println((key+"==="+value)));
         //map = {user_sex=男, user_password=1234556, user_email=1231@qq.com, user_id=1, user_name=小米, user_age=41}
     }
 
@@ -35,9 +36,10 @@ public class TestQuerySql {
     @Test
     public void testGetAllUserIntoListMap() {
         List<Map<String, Object>> listMap = mapper.getAllUserIntoListMap();
-        for (Map<String, Object> map : listMap) {
+        listMap.forEach(System.out::println);
+      /*  for (Map<String, Object> map : listMap) {
             System.out.println("map = " + map);
-        }
+        }*/
     }
 
     //5.2 查询多条数据为map集合, 方法上使用@mapkey注解绑定唯一参数
@@ -46,10 +48,17 @@ public class TestQuerySql {
         Map<String, Object> m = mapper.getAllUserIntoMapKey();
         System.out.println("m = " + m);
         System.out.println("迭代器遍历");
+        //迭代器
         Iterator<Map.Entry<String, Object>> iterable = m.entrySet().iterator();
-        while (iterable.hasNext()) {
+        iterable.forEachRemaining(System.out::println);
+       /* while (iterable.hasNext()) {
             System.out.println(iterable.next());
-        }
+        }*/
+
+        //增强fot
+        /*for (Map.Entry<String, Object> stringObjectEntry : m.entrySet()) {
+            System.out.println(stringObjectEntry);
+        }*/
     }
 
 

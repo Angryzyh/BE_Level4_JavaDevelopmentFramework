@@ -5,10 +5,12 @@
     <!--导入外部配置属性文件-->
     <properties resource="jdbc.properties"/>
     <settings>
-        <!--将表中字段的下划线自动转换为驼峰-->
+        <!--将表中字段的下划线自动转换为驼峰 在resultMap中生效-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <!--日志打印-->
+        <!--日志打印 采用LOG4J2框架-->
         <setting name="logImpl" value="LOG4J2" />
+        <!--开启延迟加载，根据需求加载，需要就加载，不需要就不加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
     </settings>
     <!--起别名-->
     <typeAliases>
