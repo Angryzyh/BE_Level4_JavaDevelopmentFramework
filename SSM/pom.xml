@@ -18,6 +18,8 @@
         <module>SpringMVC-annotation</module>
         <module>Mybatis</module>
         <module>Mybatis-MBG</module>
+        <module>SSM-unity-annotation</module>
+        <module>SSM-unity-xml</module>
     </modules>
 
     <!--模式管理-->
@@ -60,6 +62,7 @@
         <druid.version>1.2.11</druid.version>
         <mysql.version>8.0.29</mysql.version>
         <mybatis.version>3.5.10</mybatis.version>
+        <mybatis.spring.version>2.0.7</mybatis.spring.version>
         <!--Service层-->
         <fileupload.version>1.4</fileupload.version>
         <pagehelper.version>5.3.1</pagehelper.version>
@@ -71,6 +74,7 @@
 
     <!--下载引入的jar包-->
     <dependencies>
+
     </dependencies>
 
     <!--依赖管理-->
@@ -145,6 +149,7 @@
             | spring-tx事务
             | spring-orm持久层框架
             | mybatis
+            | spring-mybatis 整合
             -->
             <!--mysql数据库驱动-->
             <dependency>
@@ -182,6 +187,12 @@
                 <artifactId>mybatis</artifactId>
                 <version>${mybatis.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
 
             <!--service层jar包
             | fileupload 文件上传

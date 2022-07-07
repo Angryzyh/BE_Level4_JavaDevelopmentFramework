@@ -1,6 +1,6 @@
 package com.angryzyh.aop_annotation;
 
-import com.angryzyh.aop_annotation.model.User;
+import com.angryzyh.aop_annotation.service.User;
 import com.angryzyh.aop_annotation.config.SpringConfig;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

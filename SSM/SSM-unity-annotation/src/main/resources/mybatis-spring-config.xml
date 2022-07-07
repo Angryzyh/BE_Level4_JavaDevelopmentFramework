@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰 在resultMap中生效-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--日志打印 采用LOG4J2框架-->
+        <setting name="logImpl" value="LOG4J2"/>
+        <!--开启延迟加载，根据需求加载，需要就加载，不需要就不加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+    <!--起别名-->
+    <typeAliases>
+        <!--以包为单位，设置改包下所有的类型都拥有默认的别名，即类名且不区分大小写-->
+        <package name="com.angryzyh.model"/>
+    </typeAliases>
+    <plugins>
+        <!--设置分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
+</configuration>

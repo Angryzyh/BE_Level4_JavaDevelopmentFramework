@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--开启注解扫描-->
+    <context:component-scan base-package="com.angryzyh"/>
+    <!--开启mvc注解驱动-->
+    <mvc:annotation-driven/>
+    <!--开放对静态资源的访问-->
+    <mvc:default-servlet-handler/>
+    <!--配置Thymeleaf视图解析器 -->
+    <bean id="viewResolver" class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
+        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="templateEngine">
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <property name="templateResolver">
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        <!-- 视图前缀 -->
+                        <property name="prefix" value="/WEB-INF/templates/"/>
+                        <!-- 视图后缀 -->
+                        <property name="suffix" value=".html"/>
+                        <property name="templateMode" value="HTML5"/>
+                        <property name="characterEncoding" value="UTF-8"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    <!--配置jsp视图解析器-->
+    <!--
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    -->
+    <!--配置文件上传解析器，将上传的文件封装成MultipartFile-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <!--配置拦截器-->
+    <!--<mvc:interceptors>
+        &lt;!&ndash;第一种直接ioc-xml配置方式&ndash;&gt;
+        &lt;!&ndash;<bean class="com.angryzyh.thymeleaf.interceptor.FirstInterceptor"/>&ndash;&gt;
+        &lt;!&ndash;第二种注解引用&ndash;&gt;
+        &lt;!&ndash;<ref bean="firstInterceptor"/>&ndash;&gt;
+        &lt;!&ndash; 以上两种配置方式都是对DispatcherServlet所处理的所有的请求进行拦截 &ndash;&gt;
+        &lt;!&ndash;第三种排除拦截路径&ndash;&gt;
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            &lt;!&ndash;要排除拦截的请求路径，一个*表示当前目录下的所有请求&ndash;&gt;
+            <mvc:exclude-mapping path="/test/*"/>
+            <ref bean="firstInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            &lt;!&ndash;要排除拦截的请求路径，两个**表示当前请求路径之后的所有路径都拦截&ndash;&gt;
+            <mvc:exclude-mapping path="/test/**"/>
+            <ref bean="secondInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+
+    <!--异常处理器-->
+    <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.ArithmeticException">error</prop>
+            </props>
+        </property>
+        &lt;!&ndash;exceptionAttribute属性在value里面设置一个属性名，将出现的异常信息在请求域中进行共享&ndash;&gt;
+        <property name="exceptionAttribute" value="ex"/>
+    </bean>-->
+</beans>

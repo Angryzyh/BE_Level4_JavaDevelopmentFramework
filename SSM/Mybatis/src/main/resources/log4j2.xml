@@ -9,7 +9,7 @@
         <Root level="DEBUG">
             <AppenderRef ref="Console"/>
         </Root>
-        <logger name="java.sql" level="DEBUG"></logger>
-        <logger name="org.apache.ibatis" level="INFO"></logger>
+        <logger name="java.sql" level="DEBUG"/>
+        <logger name="org.apache.ibatis" level="INFO"/>
     </Loggers>
 </Configuration>

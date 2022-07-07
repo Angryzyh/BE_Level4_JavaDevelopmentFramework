@@ -1,4 +1,4 @@
-package com.angryzyh.aop_annotation.model;
+package com.angryzyh.aop_annotation.service;
 
 import org.springframework.stereotype.Component;
 

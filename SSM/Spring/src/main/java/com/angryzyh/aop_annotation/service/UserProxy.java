@@ -1,4 +1,4 @@
-package com.angryzyh.aop_annotation.model;
+package com.angryzyh.aop_annotation.service;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class UserProxy {
     /*抽取相同切入点*/
-    @Pointcut("execution(* com.angryzyh.aop_annotation.model.User.add(..))")
+    @Pointcut("execution(* com.angryzyh.aop_annotation.service.User.add(..))")
     public void pointcut() {
     }
 
     /*前置通知*/
-    @Before("execution(* com.angryzyh.aop_annotation.model.User.add(..))")
+    @Before("execution(* com.angryzyh.aop_annotation.service.User.add(..))")
     public void before() {
         System.out.println("Before前置增强");
     }
