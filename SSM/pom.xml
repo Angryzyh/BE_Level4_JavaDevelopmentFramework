@@ -17,6 +17,7 @@
         <module>SpringMVC</module>
         <module>SpringMVC-annotation</module>
         <module>Mybatis</module>
+        <module>Mybatis-MBG</module>
     </modules>
 
     <!--模式管理-->
@@ -58,9 +59,10 @@
         <!--Dao层-->
         <druid.version>1.2.11</druid.version>
         <mysql.version>8.0.29</mysql.version>
-        <mybatis.version>3.5.9</mybatis.version>
+        <mybatis.version>3.5.10</mybatis.version>
         <!--Service层-->
         <fileupload.version>1.4</fileupload.version>
+        <pagehelper.version>5.3.1</pagehelper.version>
         <!--Controller层-->
         <servlet.version>4.0.1</servlet.version>
         <thymeleaf.version>3.0.15.RELEASE</thymeleaf.version>
@@ -69,7 +71,6 @@
 
     <!--下载引入的jar包-->
     <dependencies>
-
     </dependencies>
 
     <!--依赖管理-->
@@ -184,12 +185,17 @@
 
             <!--service层jar包
             | fileupload 文件上传
-            |
+            | pagehelper 分页助手
             -->
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
                 <version>${fileupload.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
             </dependency>
 
             <!--controller层jar包
@@ -226,9 +232,36 @@
     <build>
         <!--定义编译打包部署的项目名-->
         <finalName>SSM</finalName>
+        <!--插件下载-->
+        <plugins>
+        </plugins>
         <!--插件管理-->
         <pluginManagement>
             <plugins>
+                <!--mybatis逆向工程插件-->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>1.4.1</version>
+                    <!--插件所需要的依赖-->
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.mybatis.generator</groupId>
+                            <artifactId>mybatis-generator-core</artifactId>
+                            <version>1.4.1</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.mchange</groupId>
+                            <artifactId>c3p0</artifactId>
+                            <version>0.9.5.5</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>8.0.29</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
         <!--资源扫描-->
