@@ -14,14 +14,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration  //声明类配置文件
-@MapperScan("com.angryzyh.mapper")  //自动扫描mapper包
 @PropertySource("classpath:jdbc.properties") //导入外部属性配置文件
 @EnableAspectJAutoProxy(proxyTargetClass = true) //开启aop注解
 @EnableTransactionManagement(proxyTargetClass = true) //开启事务,并采采用cglib代理
+@MapperScan("com.angryzyh.mapper")  //自动扫描mapper包
 @ComponentScan(basePackages = {"com.angryzyh"},excludeFilters ={
         @ComponentScan.Filter(type = FilterType.ANNOTATION,value = Controller.class)
 }) //开启组件扫描 , 主要扫描service层和dao层.排除controller层
 public class SpringConfig {
+
     @Value(value = "${jdbc.driverClassName}")
     private String driverClassName;
     @Value(value = "${jdbc.url}")
@@ -42,6 +43,14 @@ public class SpringConfig {
         return druidDataSource;
     }
 
+    // 创建事务管理器
+    @Bean
+    public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("getDruidDataSource") DataSource druidDataSource) {
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
+        transactionManager.setDataSource(druidDataSource);
+        return transactionManager;
+    }
+
     //创建SqlSessionFactory Bean容器
     @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
@@ -49,7 +58,6 @@ public class SpringConfig {
         factoryBean.setDataSource(getDruidDataSource());
         return factoryBean.getObject();
     }
-
 
    /* //创建jdbcTemplate对象
     @Bean
@@ -59,11 +67,4 @@ public class SpringConfig {
         return jdbcTemplate;
     }*/
 
-    // 创建事务管理器
-    @Bean
-    public DataSourceTransactionManager getDataSourceTransactionManager(@Qualifier("getDruidDataSource") DataSource druidDataSource) {
-        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager();
-        transactionManager.setDataSource(druidDataSource);
-        return transactionManager;
-    }
 }

@@ -19,7 +19,6 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 import java.util.List;
 import java.util.Properties;
 
-
 @Configuration  //声明类配置文件
 @ComponentScan("com.angryzyh.controller")//扫描组件
 @EnableWebMvc  //开启MVC注解驱动
@@ -97,3 +96,4 @@ public class WebConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 }
+
