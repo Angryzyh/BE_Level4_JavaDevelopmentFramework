@@ -70,13 +70,13 @@ public class TestQBC {
         List<Emp> emps = mapper.selectByExample(null);
         emps.forEach(System.out::println);
         System.out.println("============================================================================================");
-        //开启分页插件,显示当前页,以及每页几条数据
+        //===>开启分页插件,显示当前页,以及每页几条数据
         PageHelper.startPage(3, 3);
         //查询要分页的数据
         List<Emp> emps1 = mapper.selectByExample(null);
-        //分页导航,传入集合,前端页面显示5个可以跳转的预览页面按钮
+        //===>分页导航,传入集合,前端页面显示5个可以跳转的预览页面按钮
         PageInfo<Emp> empPageInfo = new PageInfo<>(emps1, 5);
-        //输出分页empPageInfo对象信息
+        //===>输出分页empPageInfo对象信息
         System.out.println("==============================================================================");
         System.out.println("empPageInfo对象封装的全部信息:empPageInfo = " + empPageInfo);
         System.out.println("==============================================================================");

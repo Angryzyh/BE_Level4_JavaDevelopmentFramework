@@ -22,12 +22,12 @@ public class TestDeleteUserMapper {
     @Test
     public void testDeleteById() {
         //通过id删除
-        int result = userMapper.deleteById(1545392916946571266L);
+        int result = userMapper.deleteById(1545693722983854081L);
         System.out.println("result = " + result);
         //通过实体类删除
-        user.setName("小虎");
+      /*  user.setName("小虎");
         int result2 = userMapper.deleteById(user);
-        System.out.println("result2 = " + result2);
+        System.out.println("result2 = " + result2);*/
     }
 
     //通过map集合条件删除

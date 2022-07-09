@@ -13,7 +13,7 @@ public class TestRemoveUserService {
     private UserService userService;
 
     @Test
-    public void testDelete() {
+    public void testRemoveUser() {
 
     }
 }

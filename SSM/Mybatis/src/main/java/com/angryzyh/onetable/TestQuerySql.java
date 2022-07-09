@@ -5,6 +5,7 @@ import com.angryzyh.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.jupiter.api.Test;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +37,11 @@ public class TestQuerySql {
     @Test
     public void testGetAllUserIntoListMap() {
         List<Map<String, Object>> listMap = mapper.getAllUserIntoListMap();
+        System.out.println("================================================================");
+        listMap.forEach(i -> {
+            i.entrySet().iterator().forEachRemaining(System.out::println);
+        });
+        System.out.println("================================================================");
         listMap.forEach(System.out::println);
       /*  for (Map<String, Object> map : listMap) {
             System.out.println("map = " + map);
