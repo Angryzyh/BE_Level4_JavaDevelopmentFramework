@@ -1,5 +1,6 @@
 package com.angryzyh.model;
 
+import com.angryzyh.enums.SexEnum;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ public class User {
     //指定实体属性与数据库字段的映射
     @TableField("name")
     private String name;
+    private SexEnum sex;
     private Integer age;
     private String email;
     //逻辑删除
