@@ -1,0 +1,19 @@
+server:
+  port: 80
+
+logging:
+  group:
+    group1: com.angryzyh.x1,com.angryzyh.x2
+    group2: com.angryzyh.xx1
+    group3: com.angryzyh.xxx1
+  level:
+    root: debug
+    group1: error
+    group2: warn
+    group3: info
+  file:
+    name: server.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log

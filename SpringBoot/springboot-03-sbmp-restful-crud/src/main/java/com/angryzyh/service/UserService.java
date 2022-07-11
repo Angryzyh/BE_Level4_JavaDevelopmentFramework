@@ -14,4 +14,5 @@ public interface UserService extends IService<User> {
 
     Page<User> myPage(int currentPage, int pageSize);
 
+    Page<User> myPage(int currentPage, int pageSize, User user);
 }

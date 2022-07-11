@@ -1,12 +1,12 @@
-package com.angryzyh.enums;
+package com.angryzyh.model.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.Getter;
 
 @Getter
 public enum SexEnum {
-    男(1,"男"),
-    女(0,"女");
+    女(0,"女"),
+    男(1,"男");
 
     @EnumValue
     private final Integer sex;
