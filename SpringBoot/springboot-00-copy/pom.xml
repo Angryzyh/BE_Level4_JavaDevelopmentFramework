@@ -60,18 +60,51 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--解决idea提示springboot配置注解处理器（@ConfigurationProperties）没有找到-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
 
-        <!--POJO层-->
+        <!--POJO层
+        | lombok [POJO初始化]
+        validation-api [数据校验接口]
+        | hibernate-validator [数据校验实现]
+        |
+        -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-        <!--DAO层-->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <!--DAO层
+        | mysql-connector-java [Mysql数据库]
+        | spring-boot-starter-data-redis [Redis数据库]
+        | spring-boot-starter-data-mongodb [MongoDB文档数据库]
+        | druid-spring-boot-starter [德鲁伊连接池]
+        | mybatis-plus-boot-starter [MybatisPlus]
+        -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -85,7 +118,11 @@
         </dependency>
         <!--Service层-->
 
-        <!--Controller层-->
+        <!--Controller层
+        | spring-boot-starter-web [SpringMVC]
+        |
+        |
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
