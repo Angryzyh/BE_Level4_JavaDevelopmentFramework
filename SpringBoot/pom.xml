@@ -14,9 +14,11 @@
 
     <modules>
         <module>springboot-00-copy</module>
-        <module>springboot-01-mybatisplus</module>
-        <module>springboot-02-mybatisx</module>
-        <module>springboot-03-sbmp-restful-crud</module>
+        <module>springboot-01-springboot2</module>
+        <module>springboot-02-mybatisplus</module>
+        <module>springboot-03-mybatisx</module>
+        <module>springboot-04-sbmp-restful-crud</module>
+		<module>springboot-05-cache</module>
     </modules>
 
 </project>

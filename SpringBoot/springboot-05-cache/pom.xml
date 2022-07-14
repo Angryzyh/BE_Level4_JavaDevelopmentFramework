@@ -9,7 +9,7 @@
         <relativePath/>
     </parent>
 
-    <artifactId>springboot-00-copy</artifactId>
+    <artifactId>springboot-05-cache</artifactId>
     <packaging>jar</packaging>
 
     <!--模式管理-->
@@ -124,7 +124,6 @@
         <!--Controller层
         | spring-boot-starter-tomcat [tomcat服务器]
         | spring-boot-starter-web [SpringMVC]
-        | elasticsearch-rest-high-level-client [elasticsearch高级客户端]
         |
         -->
         <dependency>
@@ -136,10 +135,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!--缓存技术-->
+        <!--spring自带缓存-->
         <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
+        <!--Ehcache-->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
