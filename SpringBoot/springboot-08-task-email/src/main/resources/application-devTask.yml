@@ -1,0 +1,10 @@
+spring:
+  task:
+    scheduling:
+      pool:
+          size: 2 #线程池大小 默认1
+      shutdown:
+        await-termination: true #线程池关闭时等待所有任务完成
+        await-termination-period: 10s  #最长等待时间
+      thread-name-prefix: task_moduleName_ #给task线程命名前缀  默认scheduling-
+

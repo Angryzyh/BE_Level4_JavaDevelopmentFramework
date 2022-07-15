@@ -1,0 +1,10 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        #允许表单的post请求转换
+        enabled: true
+  #静态资源访问前缀
+  #static-path-pattern: /res/**
+
+

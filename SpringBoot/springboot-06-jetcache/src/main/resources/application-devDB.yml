@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/ssm?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+      username: root
+      password: root
+
+mybatis-plus:
+  global-config:
+    banner: off
+    db-config:
+      #全局配置 设置实体类所对应表名的统一前缀
+      table-prefix: sbmp_mybatisplus_
+      #全局主键生成策略
+      id-type: assign_id
+  configuration:
+    #sql语句日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #配置别名
+  type-aliases-package: com.angryzyh.model

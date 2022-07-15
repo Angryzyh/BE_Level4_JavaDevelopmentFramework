@@ -55,7 +55,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return cache.get(id);
     }
 
-    //springCache
+    //springCache   后面 type可以改成 ehcache或者redis都能用
     //                   缓存空间area
     @Cacheable(value = "SpringCache",key = "#id")
     @Override

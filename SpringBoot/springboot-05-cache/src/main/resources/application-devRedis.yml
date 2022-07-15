@@ -4,3 +4,10 @@ spring:
     port: 6379
     #默认
     client-type: lettuce
+  cache:
+    redis:
+      use-key-prefix: true #默认true 使用前缀
+      cache-null-values: true #默认true 是否缓存空值
+      key-prefix: sms_ #配置key的追加前缀
+      time-to-live: 10s
+      #最终key值 [key-prefix+]

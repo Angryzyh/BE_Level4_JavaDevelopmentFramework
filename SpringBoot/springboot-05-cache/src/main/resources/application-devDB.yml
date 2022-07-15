@@ -6,7 +6,7 @@ spring:
       username: root
       password: root
   cache:
-    type: ehcache
+    type: redis
 
 mybatis-plus:
   global-config:

@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: @profile.active@
+    group:
+      "dev": devDB,devMVC,devJ2cache
+      "pro": proDB,proRedis,proMVC
+      "test": testDB,testRedis,testMVC
+  main:
+    banner-mode: off
+
+
+    #使用了 手动缓存，原生缓存，ehcache缓存，redis缓存

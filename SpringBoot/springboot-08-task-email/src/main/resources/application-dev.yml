@@ -1,0 +1,32 @@
+server:
+  port: 80
+#
+#unit:
+#  #测试数据校验
+#  sss: 100000
+#  nanos: 1000
+#  micros: 1000
+#  millis: 1000
+#  seconds: 1000
+#  minutes: 1000
+#  hours: 1000
+#  days: 1000
+#  #这里 定义优先级 高于 属性上注解  常用单位 d h m s ms ns
+#  timetemp: 10000000h
+#
+#  bytes: 1024
+#  kilobytes: 1024
+#  megabytes: 1024
+#  gigabytes: 1024
+#  terabytes: 1
+#
+#
+#testconfig:
+#  testvalue: "hello@Value"
+#
+##添加随机数据
+#user:
+#  name: ${random.value}
+#  sex: 女
+#  age: ${random.int(1,130)}
+#  email: ${random.value}@${random.int(99,9999)}.com

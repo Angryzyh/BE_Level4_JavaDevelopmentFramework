@@ -19,6 +19,9 @@
         <module>springboot-03-mybatisx</module>
         <module>springboot-04-sbmp-restful-crud</module>
 		<module>springboot-05-cache</module>
+        <module>springboot-06-jetcache</module>
+        <module>springboot-07-j2cache</module>
+        <module>springboot-08-task-email</module>
     </modules>
 
 </project>

@@ -91,7 +91,6 @@
         </dependency>
         <!--DAO层
         | mysql-connector-java [Mysql数据库]
-        | spring-boot-starter-data-redis [Redis数据库]
         | spring-boot-starter-data-mongodb [MongoDB文档数据库]
         | druid-spring-boot-starter [德鲁伊连接池]
         | mybatis-plus-boot-starter [MybatisPlus]
@@ -101,10 +100,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -146,6 +142,11 @@
         <dependency>
             <groupId>net.sf.ehcache</groupId>
             <artifactId>ehcache</artifactId>
+        </dependency>
+        <!--redis缓存-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
     </dependencies>
