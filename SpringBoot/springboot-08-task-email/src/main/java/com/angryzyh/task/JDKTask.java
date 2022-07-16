@@ -11,6 +11,17 @@ public class JDKTask {
             public void run() {
                 System.out.println("fuckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkking");
             }
-        },0,2000);
+        }, 0, 2000);
+    }
+
+    public void run1() {
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("fuckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkking");
+            }
+        };
+        timer.schedule(timerTask,0,2000);
     }
 }

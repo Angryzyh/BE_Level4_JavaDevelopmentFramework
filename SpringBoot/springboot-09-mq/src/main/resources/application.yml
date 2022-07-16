@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev
+    group:
+      "dev": devDB,devRedis,devMVC,devMongoDB,devTask,devEmail,devMQ
+      "pro": proDB,proRedis,proMVC
+      "test": testDB,testRedis,testMVC
+  main:
+    banner-mode: off

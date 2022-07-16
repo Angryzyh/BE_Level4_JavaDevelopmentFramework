@@ -22,6 +22,7 @@
         <module>springboot-06-jetcache</module>
         <module>springboot-07-j2cache</module>
         <module>springboot-08-task-email</module>
+        <module>springboot-09-mq</module>
     </modules>
 
 </project>
