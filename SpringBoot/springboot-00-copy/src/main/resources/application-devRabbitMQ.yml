@@ -1,0 +1,8 @@
+spring:
+  jms:
+    pub-sub-domain: true # 是否开启订阅
+    template:
+      default-destination: msgs #队列默认名称
+  rabbitmq:
+    host: localhost
+    port: 5672

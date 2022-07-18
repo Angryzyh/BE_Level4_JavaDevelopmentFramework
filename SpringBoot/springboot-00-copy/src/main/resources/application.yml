@@ -2,7 +2,7 @@ spring:
   profiles:
     active: @profile.active@
     group:
-      "dev": devDB,devRedis,devMVC,devMongoDB
+      "dev": devMVC,devDB,devRedis,devMongoDB,devRabbitMQ
       "pro": proDB,proRedis,proMVC
       "test": testDB,testRedis,testMVC
   main:
